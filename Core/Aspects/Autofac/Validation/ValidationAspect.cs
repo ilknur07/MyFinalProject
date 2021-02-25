@@ -9,13 +9,12 @@ using System.Text;
 
 namespace Core.Aspects.Autofac.Validation
 {
-    public class Class1
-    {
         public class ValidationAspect : MethodInterception
         {
             private Type _validatorType;
             public ValidationAspect(Type validatorType)
             {
+                //defensive coding--savunma odakli k odlama
                 if (!typeof(IValidator).IsAssignableFrom(validatorType))
                 {
                     throw new System.Exception("Bu bir dogrulama sinifi degil");
@@ -35,4 +34,4 @@ namespace Core.Aspects.Autofac.Validation
             }
         }
     }
-}
+
